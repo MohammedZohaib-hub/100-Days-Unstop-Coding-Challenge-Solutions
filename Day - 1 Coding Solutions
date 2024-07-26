@@ -14,4 +14,109 @@ if k<= len(arr):
     print(arr[k-1])
 else:
     print("")
-               
+
+
+Question - 2 : 
+Kth Character
+
+Code : 
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n,k;
+    cin >> n>>k;
+    string s;
+    cin>>s;
+    cout<<s[n-k];
+    return 0;
+}
+this is code is contributed by Rakesh in C++
+
+
+Question - 3 : 
+City Biker
+
+Once upon a time, a city biker embarked on an exciting road trip. This journey was laid out across a sequence of n+1 points, each with varying altitudes. 
+The biker's adventure commenced at point 0, where the altitude was a humble 0 meters above sea level.
+During his expedition, he encountered different terrains. For every segment between points i and i+1, where 0≤i<n, the biker faced varying challenges in altitude. 
+Each segment was represented by an integer array called gain of length n, where gain[i] denoted the net gain in altitude between points i and i+1.
+The biker's goal was to find the highest altitude he reached during his journey. This altitude was determined by the net gain in altitude at each point along the way. 
+It could be a thrilling peak or a serene valley, depending on the varying gains between consecutive points.
+
+
+Code : 
+n = int(input())
+arr = list(map(int,input().split()))
+res = 0
+sumz = 0
+for i in range(len(arr)):
+    sumz += arr[i]
+    res = max(res,sumz)
+print(res)
+
+
+Question - 4 :
+Basic Encoding
+
+You are given a series of queries of the form (a, b), where:
+
+a represents the count of the number b.
+For example, the query (3, 5) means the number 5 appears 3 times.
+
+Your task is to compute the absolute difference between the numbers which has the highest and lowest frequencies (least number of times must be atleast once).
+
+If there are multiple possible answers, you should return the maximum possible absolute difference
+
+Code :
+import java.util.*;
+
+public class Main {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int n = scanner.nextInt();
+
+        // Mapping number to its frequency
+        Map<Integer, Integer> map = new HashMap<>();
+
+        // Loop through the queries
+        for (int i = 0; i < n; i++) {
+            int frequency = scanner.nextInt();
+            int number = scanner.nextInt();
+
+            // Updating the frequency of the number
+            map.put(number, map.getOrDefault(number, 0) + frequency);
+        }
+
+        int maxFrequency = 0;
+        int maxNumber = 0;
+        int minFrequency = Integer.MAX_VALUE;
+        int minNumber = 0;
+
+        // Finding the number with maximum and minimum frequencies
+        for (int key : map.keySet()) {
+            int frequency = map.get(key);
+
+            if (frequency > maxFrequency || (frequency == maxFrequency && key > maxNumber)) {
+                maxFrequency = frequency;
+                maxNumber = key;
+            }
+
+            if (frequency < minFrequency || (frequency == minFrequency && key < minNumber)) {
+                minFrequency = frequency;
+                minNumber = key;
+            }
+        }
+
+        // Calculating and printing the absolute difference
+        System.out.println(Math.abs(maxNumber - minNumber));
+    }
+}
+                  Java Code 
